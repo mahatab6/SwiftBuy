@@ -1,5 +1,6 @@
 import { collectionName, dbConnect } from "@/lib/db";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaCircleArrowRight } from "react-icons/fa6";
 
@@ -30,7 +31,7 @@ export default async function ProductsShow() {
             </div>
 
             {/* Content */}
-            <div className="p-4 flex items-center justify-between">
+            <Link href={`/products/${item?._id}`} className="p-4 flex items-center justify-between">
               <div>
                 <h1 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#239BA7] transition-colors duration-300 cursor-pointer">
                   {item?.chairName}
@@ -44,7 +45,7 @@ export default async function ProductsShow() {
               <button className="text-gray-500 hover:text-[#239BA7] transition-colors duration-300">
                 <FaCircleArrowRight size={28} />
               </button>
-            </div>
+            </Link>
           </div>
         ))}
       </div>
