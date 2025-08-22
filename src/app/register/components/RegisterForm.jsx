@@ -1,3 +1,4 @@
+"use client";
 import { RegisterApi } from '@/app/api/register/route';
 import { useRouter } from 'next/navigation';
 import React from 'react'
@@ -16,7 +17,7 @@ export default function RegisterForm() {
             route.push('/')
           }
         } catch (error) {
-          alert(error)
+          toast.error("User already exists with this email")
         }
     };
 

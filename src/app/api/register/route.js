@@ -7,8 +7,7 @@ export const RegisterApi = async (data) =>{
     const { db } = await dbConnect();
     const existingUser = await db.collection(collectionName.UserCollection).findOne({email: email});
     if(existingUser){
-        throw new Error("User already exists with this emai");
-        return;
+        throw new Error("User already exists with this email");
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const result = await db.collection(collectionName.UserCollection).insertOne({
