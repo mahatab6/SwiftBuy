@@ -2,18 +2,25 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react"
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 
 
 export default function LoginForm() {
-  const { register, handleSubmit, formState: { errors },} = useForm();
+    const router = useRouter();
+  const { register, handleSubmit, formState: { errors }, reset} = useForm();
   const onSubmit = async(data) => {
     try {
-        const result = await signIn("credentials",{email: data?.email, password: data?.password, callbackUrl:"/"})
-       
+        const result = await signIn("credentials",{email: data?.email, password: data?.password, redirect:false})
+        if(result.ok){
+            router.push('/');
+            toast.success("loging success");
+            reset();
+        }
 
     } catch (error) {
-        
+        toast.error("login failed")
     }
   };
 

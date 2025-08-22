@@ -8,13 +8,15 @@ import toast from 'react-hot-toast';
 export default function RegisterForm() {
 
     const route = useRouter();
-    const { register,handleSubmit, formState: { errors },} = useForm();
+    const { register,handleSubmit, formState: { errors },reset} = useForm();
     const onSubmit = async (data) =>{
         try {
           const result = await RegisterApi(data);
           if(result?.insertedId){
             toast.success("This is a success message!")
-            route.push('/')
+            route.push('/');
+            reset();
+            
           }
         } catch (error) {
           toast.error("User already exists with this email")
