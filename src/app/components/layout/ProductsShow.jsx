@@ -13,7 +13,7 @@ export default async function ProductsShow() {
         <h2 className="text-3xl font-bold">Products Collection</h2>
         <p className="text-xl py-5">Best Sellers</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-10 md:pb-20">
         {data?.slice(0, 8)?.map((item) => (
           <div
             key={item?._id}
