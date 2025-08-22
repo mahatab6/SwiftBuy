@@ -25,7 +25,7 @@ It includes public and protected pages with basic authentication implemented via
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/swiftbuy.git
+git clone https://github.com/mahatab6/SwiftBuy.git
 cd swiftbuy
 
 2. npm install
